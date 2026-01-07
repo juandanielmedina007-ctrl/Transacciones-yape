@@ -5,18 +5,22 @@ from src.metrics import calculate_kpis, get_busiest_hour
 from src.charts import plot_transactions_per_hour
 
 # Configuración de página
-st.set_page_config(
-    page_title="Dashboard Yape",
-    page_icon="💸",
-    layout="wide"
-)
-
 # Configuración de página
 st.set_page_config(
     page_title="Dashboard Yape",
     page_icon="💸",
     layout="wide"
 )
+
+# --- ESTILOS CSS PERSONALIZADOS (Ocultar marcas de agua) ---
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # --- SIDEBAR ---
 with st.sidebar:
@@ -263,3 +267,6 @@ else:
     2. Sube el archivo Excel aquí.
     3. Explora tus métricas de ingresos, gastos y patrones de uso.
     """)
+    st.markdown("---")
+    st.markdown("### Desarrollado por: [Juan Daniel Medina](https://github.com/juandanielmedina007-ctrl)")
+    st.markdown("### GitHub: [Transacciones-yape](https://github.com/juandanielmedina007-ctrl/Transacciones-yape)")
